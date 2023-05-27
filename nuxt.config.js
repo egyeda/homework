@@ -35,6 +35,7 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
+    'nuxt-compress',
   ],
   /*
   ** Nuxt.js modules
@@ -42,6 +43,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    'nuxt-compress',
   ],
   /*
   ** Axios module configuration

@@ -1,12 +1,10 @@
 <template>
   <div class="pa-2">
-    <ProductList :products="products" />
+    <h1>Todo homepage?</h1>
   </div>
 </template>
 
 <script>
-import ProductList from '../components/ProductList.vue';
-
 
 export default {
 }
