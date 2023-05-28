@@ -14,22 +14,10 @@ export default {
                 })
             }
         },
-        removeFromCart(state, item) {
-            state.cartItems.splice(state.cartItems.indexOf(item) - 1, 1)
-        },
-        clearCart(state) {
-            state.cartItems = []
-        },
     },
     actions: {
         addToCart({ commit }, {item, quantity}) {
             commit('addToCart', {item, quantity});
-        },
-        removeFromCart({ commit }, itemId) {
-            commit('removeFromCart', itemId);
-        },
-        clearCart({ commit }) {
-            commit('clearCart');
         },
     },
 }

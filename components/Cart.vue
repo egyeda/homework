@@ -1,6 +1,5 @@
 <template>
     <div class="pa-3">
-        <h2 class="p-3">Your Cart</h2>
         <v-card class="mb-3" v-for="item in cartItems" :key="item.id">
             <v-row no-gutters>
             <v-col align="center" justify="center" cols="6" sm="4">
@@ -12,15 +11,9 @@
                     <div>Price: {{ formatPrice(item.price) }}</div>
                     <div>Quantity: {{ item.quantity }} pcs</div>
                 </v-card-text>
-                <v-card-actions align="end" justify="end" >
-                    <v-btn @click="removeFromCart(item.id)" color="error">Remove</v-btn>
-                </v-card-actions>
             </v-col>
             </v-row>
         </v-card>
-        <div>
-            <v-btn @click="clearCart" color="error">Clear Cart</v-btn>
-        </div>
     
         <div class="total-price">
             <span>Total Price: {{ formatPrice(total) }}</span>
@@ -43,9 +36,6 @@ export default {
             }, 0)
         }
     },
-    methods: {
-        ...mapActions('cart', ['removeFromCart', 'clearCart'])
-    }
 }
 </script>
 

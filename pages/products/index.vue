@@ -1,5 +1,8 @@
 <template>
+  <section>
+    <h1>Products</h1> 
     <ProductList :products="products" />
+  </section>
 </template>
 
 
@@ -13,7 +16,9 @@ export default {
     ...mapState('products', ['products'])
   },
   async created(){
+    if(!this.products || this.products.length === 0 ){ // so it wont refresh if we navigate back to this page
       await this.fetchProducts()
+    }
   },
   methods: {
     ...mapActions('products', ['fetchProducts'])

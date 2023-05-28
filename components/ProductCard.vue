@@ -3,14 +3,12 @@
         <div  class="product-image">
             <img :src="product.img" :alt="product.name" />
         </div>
-        <h3 class="product-name">{{ product.name }}</h3>
+        <div class="product-name">{{ product.name }}</div>
         <p class="product-price">{{ formatPrice(product.price) }}</p>
         <p class="product-available-amount">
             Available amount: {{ product.availableAmount }}
             <br>
             Minimum order amount: {{ product.minOrderAmount }}
-        </p>
-        <p class="product-min-amount">
         </p>
         <v-form ref="addToCartForm" lazy-validation class="add-to-cart">
             <v-text-field
@@ -26,6 +24,7 @@
             <v-btn
                 :disabled="!(product.availableAmount > 0)"
                 color="primary"
+                id="add-to-cart-button"
                 @click="addToCartPressed">
                 Add to cart
             </v-btn>
@@ -34,7 +33,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import formatterMixin from '~/mixins/formatterMixin'
 
 export default{
@@ -67,12 +65,9 @@ export default{
         }
     },
     methods: {
-        ...mapMutations('cart', ['addToCart']),
-        ...mapMutations('products', ['reduceProductInventory']),
         addToCartPressed(){
             if (this.$refs.addToCartForm.validate()) {
-                this.addToCart({ item: this.product, quantity: this.amount })
-                this.reduceProductInventory({ payload: this.product, quantity: this.amount })
+                this.$emit('add-to-cart', this.product, this.amount)
             }
         }
     }
@@ -81,7 +76,7 @@ export default{
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/variables.scss";
+@import "~@/assets/css/colors.scss";
 .product {
     width: 100%;
     max-width: 300px;
@@ -104,13 +99,15 @@ export default{
     }
 }
 .product-name {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
     font-size: 18px;
+    font-weight: bold;
     color: $color-primary;
 }
 .product-price {
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: 0;
 }
 .add-to-cart{
     display: flex;

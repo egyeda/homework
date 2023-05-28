@@ -1,11 +1,12 @@
 <template>
     <section>
+        <h1>Cart</h1>
         <Cart />
     </section>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex' 
+import { mapState } from 'vuex' 
 import Cart from '~/components/Cart.vue'
 
 export default {
@@ -17,8 +18,4 @@ export default {
 </script>
 
 <style scoped>
-.total-price {
-  text-align: right;
-  margin-top: 10px;
-}
 </style>>

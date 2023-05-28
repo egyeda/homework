@@ -1,18 +1,22 @@
 <template>
-    <section>
+    <div>
         <div v-if="loading" class="product-loader">
             <v-progress-circular indeterminate color="primary"></v-progress-circular>
             <span class="ml-2">Loading...</span>
         </div>
         <div v-else class="product-list">
-          <ProductCard v-for="product in products" :key="product.id" :product="product" />
+          <ProductCard 
+            v-for="product in products" 
+            :key="product.id" 
+            :product="product" 
+            @add-to-cart="addToCartEventHandler"/>
         </div>
-    </section>
+    </div>
 </template>
   
 <script>
 import ProductCard from '~/components/ProductCard.vue';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
     props: {
@@ -25,6 +29,14 @@ export default {
     computed: {
         ...mapState('products', ['loading'])
     },
+    methods: {
+        ...mapMutations('cart', ['addToCart']),
+        ...mapMutations('products', ['reduceProductInventory']),
+        addToCartEventHandler(product, amount) {
+            this.addToCart({ item: product, quantity: amount })
+            this.reduceProductInventory({ payload: product, quantity: amount })
+        }
+    }
 };
 </script>
 
