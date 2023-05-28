@@ -15,7 +15,7 @@ export default {
             }
         },
         removeFromCart(state, item) {
-            state.cartItems.splice(state.cartItems.indexOf(item), 1)
+            state.cartItems.splice(state.cartItems.indexOf(item) - 1, 1)
         },
         clearCart(state) {
             state.cartItems = []

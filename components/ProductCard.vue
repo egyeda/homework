@@ -80,7 +80,7 @@ export default{
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~@/assets/variables.scss";
 .product {
     width: 100%;
@@ -92,7 +92,6 @@ export default{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
-
 .product-image {
     width: 100%;
     max-width: 200px;
@@ -104,13 +103,11 @@ export default{
         object-fit: contain;
     }
 }
-
 .product-name {
     margin-bottom: 5px;
     font-size: 18px;
     color: $color-primary;
 }
-
 .product-price {
     font-size: 16px;
     font-weight: bold;

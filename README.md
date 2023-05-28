@@ -1,8 +1,13 @@
-# homework
+# Homework
 
-> Homework project
+> Welcome to my homework project!
+
+I've used Vue/Nuxt.js version 2 with Vuetify UI library for some parts,
+on the product list i've intentionally tried to skip it just so to use
+plain CSS and HTML.
 
 ## Build Setup
+The version of Node.js i've used for the project is 16.13.1.
 
 ```bash
 # install dependencies
@@ -18,5 +23,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

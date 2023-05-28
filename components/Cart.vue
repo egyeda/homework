@@ -1,18 +1,18 @@
 <template>
-    <div>
+    <div class="pa-3">
         <h2 class="p-3">Your Cart</h2>
         <v-card class="mb-3" v-for="item in cartItems" :key="item.id">
             <v-row no-gutters>
-            <v-col cols="4">
-                <v-img contain height="250" width="250" :src="item.img" :alt="item.name"></v-img>
+            <v-col align="center" justify="center" cols="6" sm="4">
+                <v-img contain height="200" width="250" :src="item.img" :alt="item.name"></v-img>
             </v-col>
-            <v-col cols="8">
+            <v-col cols="6" sm="8">
                 <v-card-title>{{ item.name }}</v-card-title>
                 <v-card-text>
                     <div>Price: {{ formatPrice(item.price) }}</div>
                     <div>Quantity: {{ item.quantity }} pcs</div>
                 </v-card-text>
-                <v-card-actions>
+                <v-card-actions align="end" justify="end" >
                     <v-btn @click="removeFromCart(item.id)" color="error">Remove</v-btn>
                 </v-card-actions>
             </v-col>
