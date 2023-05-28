@@ -1,41 +1,24 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <nuxt-link to="/"> <h1>Homework </h1></nuxt-link> 
-      <v-spacer></v-spacer>
-      <nuxt-link to="products">Products</nuxt-link> 
-      <nuxt-link to="cart">Cart</nuxt-link>
-    </v-app-bar>
+    <Header/>
     <v-main>
       <nuxt/>
     </v-main>
-    <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }} Homework</span>
-    </v-footer>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+
 export default {
   data () {
     return {}
   },
-  methods: {
-    toggleDrawer () {
-      this.drawer = !this.drawer
-    }
-  }
+  components: {Header, Footer}
 }
 </script>
 
 <style lang="scss">
-@import "~@/assets/variables.scss";
-.v-toolbar a {
-  margin: 0 10px;
-  text-decoration: none;
-  vertical-align: sub;
-}
-.v-toolbar .nuxt-link-exact-active {
-  color: $color-primary-dark;
-}
 </style>
