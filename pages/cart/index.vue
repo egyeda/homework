@@ -1,7 +1,7 @@
 <template>
     <section>
         <h1>Cart</h1>
-        <Cart />
+        <Cart :cartItems="cartItems"/>
     </section>
 </template>
 
@@ -16,6 +16,3 @@ export default {
     components: { Cart },
 }
 </script>
-
-<style scoped>
-</style>>

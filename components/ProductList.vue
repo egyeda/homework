@@ -1,9 +1,8 @@
 <template>
     <div>
-        <div v-if="loading" class="product-loader">
-            <v-progress-circular indeterminate color="primary"></v-progress-circular>
-            <span class="ml-2">Loading...</span>
-        </div>
+        <Loader v-if="loading">
+            Loading product list...
+        </Loader>
         <div v-else class="product-list">
           <ProductCard 
             v-for="product in products" 
@@ -16,6 +15,7 @@
   
 <script>
 import ProductCard from '~/components/ProductCard.vue';
+import Loader from '~/components/Loader.vue';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
@@ -25,7 +25,7 @@ export default {
             required: true,
         }
     },
-    components: { ProductCard },
+    components: { ProductCard, Loader },
     computed: {
         ...mapState('products', ['loading'])
     },
@@ -45,14 +45,5 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 80%;
-    margin: auto;
-}
-.product-loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    width: 100%;
 }
 </style>

@@ -38,7 +38,19 @@ describe('ProductCard.vue', () => {
         expect(wrapper.vm).toBeTruthy()
     })
 
-    it('renders a proudct', () => {
+    it('renders a product', () => {
         expect(wrapper.find('.product').exists()).toBe(true)
+    })
+    it('renders a product name', () => {
+        expect(wrapper.find('.product-name').exists()).toBe(true)
+    })
+    it('renders a product price', () => {
+        expect(wrapper.find('.product-price').exists()).toBe(true)
+    })
+    it('renders a product amount', () => {
+        expect(wrapper.find('.product-available-amount').exists()).toBe(true)
+    })
+    it('renders a product add to cart button', () => {
+        expect(wrapper.find('#add-to-cart-button').exists()).toBe(true)
     })
 })

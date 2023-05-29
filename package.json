@@ -42,13 +42,6 @@
       ".*\\.(vue)$": "vue-jest"
     },
     "testEnvironment": "jsdom",
-    "testEnvironmentOptions": {
-      "browsers": [
-        "chrome",
-        "firefox",
-        "safari"
-      ]
-    },
     "setupFilesAfterEnv": [
       "<rootDir>jest.setup.js"
     ],
